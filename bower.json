@@ -1,0 +1,26 @@
+{
+  "name": "ember_intro",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass-official": "~3.2.0",
+    "modernizr": "~2.8.2",
+    "ember": "~1.7.0"
+  },
+  "version": "0.0.0",
+  "authors": [
+    "Jason Gonzales <jason.gonzales23@gmail.com>"
+  ],
+  "description": "code samples for ember introductory video",
+  "keywords": [
+    "ember",
+    "tutorial"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
