@@ -66,7 +66,7 @@ module.exports = function (grunt) {
         ]
       },
       emberTemplates: {
-        files: 'app/templates/*.handlebars',
+        files: 'app/scripts/templates/*.handlebars',
         tasks: 'emberTemplates'
       }
     },
