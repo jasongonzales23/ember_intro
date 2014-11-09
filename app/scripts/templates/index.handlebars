@@ -23,9 +23,9 @@
 
         <ul class="list-group">
           <li class="list-group-item">All</li>
-          <li class="list-group-item">Produce</li>
-          <li class="list-group-item">Baking</li>
-          <li class="list-group-item">Household Items</li>
+          {{#each}}
+          <li class="list-group-item">{{title}}</li>
+          {{/each}}
         </ul>
 
     </div>
