@@ -5,9 +5,7 @@ App = Em.Application.create({
 App.ApplicationAdapter = DS.FixtureAdapter;
 
 App.Router.map(function() {
-  this.resource('categories', function() {
-    this.resource('category', {path: ':_id'});
-  });
+  this.resource('category', {path: ':id'});
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -18,6 +16,6 @@ App.IndexRoute = Ember.Route.extend({
 
 App.CategoryRoute = Ember.Route.extend({
   model: function(params) {
-    return this.store.find('category', params._id)
+    return this.store.find('category', params.id)
   }
 });
