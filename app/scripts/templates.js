@@ -4,8 +4,8 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
-
-
+  
+  
   data.buffer.push("\n  <i class='glyphicon glyphicon-chevron-left'></i>Back\n");
   }
 
