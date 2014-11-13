@@ -19,3 +19,24 @@ App.CategoryRoute = Ember.Route.extend({
     return this.store.find('category', params.id)
   }
 });
+
+App.CategoryController = Ember.ObjectController.extend({
+  actions: {
+    createNewItem: function() {
+      var item = this.get('newItem');
+      var category_id = this.model.id
+
+      var item = this.store.createRecord('item', {
+        name: item
+      });
+
+      this.store.find('category', category_id).then(function(category){
+        item.set('category', category);
+        category.get('items').pushObject(item);
+        item.save();
+      });
+
+      this.set('newItem', '');
+    }
+  }
+});
