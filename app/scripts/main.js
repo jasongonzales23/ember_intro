@@ -23,17 +23,18 @@ App.CategoryRoute = Ember.Route.extend({
 App.CategoryController = Ember.ObjectController.extend({
   actions: {
     createNewItem: function() {
-      var item = this.get('newItem');
+      var newItem = this.get('newItem');
       var category_id = this.model.id
 
       var item = this.store.createRecord('item', {
-        name: item
+        name: newItem
       });
 
       this.store.find('category', category_id).then(function(category){
         item.set('category', category);
         category.get('items').pushObject(item);
         item.save();
+        category.save();
       });
 
       this.set('newItem', '');
