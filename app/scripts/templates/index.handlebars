@@ -1,13 +1,13 @@
 <h1>Categories</h1>
 
-<form class="add-new">
+<div class="form-group">
   <div class="input-group">
-    <input type="text" class="form-control">
+    {{input type="text" id="new-category" class="form-control" placeholder="New Category" value=newCategory action="createNewCategory"}}
     <span class="input-group-btn">
-      <button class="btn btn-default" type="button">&plus;</button>
+      <button class="btn btn-default" type="button" {{action "createNewCategory"}}>&plus;</button>
     </span>
   </div><!-- /input-group -->
-</form>
+</div>
 
 <ul class="list-group">
   <li class="list-group-item">

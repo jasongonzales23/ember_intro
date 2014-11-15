@@ -3,14 +3,14 @@
 {{/link-to}}
 <h1>{{title}}</h1>
 
-<form class="add-new">
+<div class="form-group">
   <div class="input-group">
     {{input type="text" id="new-item" class="form-control" placeholder="New Item" value=newItem action="createNewItem"}}
     <span class="input-group-btn">
       <button type="button" class="btn btn-default" {{action "createNewItem"}}> &plus;</button>
     </span>
   </div><!-- /input-group -->
-</form>
+</div>
 
 <ul class="list-group">
   {{#each items}}

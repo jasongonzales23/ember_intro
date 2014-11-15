@@ -41,3 +41,16 @@ App.CategoryController = Ember.ObjectController.extend({
     }
   }
 });
+
+App.IndexController = Ember.ArrayController.extend({
+  actions: {
+    createNewCategory: function() {
+      var newCategory = this.get('newCategory');
+      var category = this.store.createRecord('category', {
+        title: newCategory
+      });
+      category.save();
+      this.set('newCategory', '');
+    }
+  }
+});
