@@ -2,7 +2,9 @@ App = Em.Application.create({
   rootElement: $('#app')
 });
 
-App.ApplicationAdapter = DS.FixtureAdapter;
+App.ApplicationAdapter = DS.LSAdapter.extend({
+  namespace: 'grocery-shoppr-emberjs'
+});
 
 App.Router.map(function() {
   this.resource('category', {path: ':id'});
