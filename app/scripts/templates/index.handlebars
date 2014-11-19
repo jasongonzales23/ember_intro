@@ -16,6 +16,7 @@
   {{#each}}
   <li class="list-group-item">
     {{#link-to 'category' id}} {{title}} {{/link-to}}
+    {{partial "delete-button"}}
    </li>
   {{/each}}
 </ul>

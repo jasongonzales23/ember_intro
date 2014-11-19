@@ -52,6 +52,20 @@ App.CategoryController = Ember.ObjectController.extend({
       });
 
       this.set('newItem', '');
+    },
+
+    deleteItem: function(item) {
+      this.get('items').removeObject(item);
+      item.destroyRecord();
+    }
+  }
+});
+
+App.ItemsController = Ember.ArrayController.extend({
+  actions: {
+    deleteItem: function(item) {
+      this.removeObject(item);
+      item.destroyRecord();
     }
   }
 });
@@ -65,6 +79,15 @@ App.IndexController = Ember.ArrayController.extend({
       });
       category.save();
       this.set('newCategory', '');
+    },
+    deleteItem: function(user_cat) {
+     this.store.find('category', user_cat.id).then(function(category) {
+       items = category.get('items');
+       items.toArray().forEach(function(item, index, enumerable) {
+         item.destroyRecord();
+       });
+       category.destroyRecord();
+     });
     }
   }
 });
