@@ -12,6 +12,11 @@ App.Router.map(function() {
 });
 
 App.IndexRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    this.store.find('category');
+    this.store.find('item');
+    this._super(transition);
+  },
   model: function() {
     return this.store.find('category');
   }
@@ -80,9 +85,9 @@ App.IndexController = Ember.ArrayController.extend({
       category.save();
       this.set('newCategory', '');
     },
-    deleteItem: function(user_cat) {
-     this.store.find('category', user_cat.id).then(function(category) {
-       items = category.get('items');
+    deleteItem: function(selection) {
+     this.store.find('category', selection.id).then(function(category) {
+       var items = category.get('items');
        items.toArray().forEach(function(item, index, enumerable) {
          item.destroyRecord();
        });

@@ -94,10 +94,13 @@ function program3(depth0,data) {
 function program4(depth0,data) {
   
   var buffer = '', stack1;
-  data.buffer.push(" ");
+  data.buffer.push("\n      ");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push(" ");
+  data.buffer.push("\n      <span class=\"badge\">");
+  stack1 = helpers._triageMustache.call(depth0, "itemCount", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</span>\n    ");
   return buffer;
   }
 

@@ -15,7 +15,10 @@
   </li>
   {{#each}}
   <li class="list-group-item">
-    {{#link-to 'category' id}} {{title}} {{/link-to}}
+    {{#link-to 'category' id}}
+      {{title}}
+      <span class="badge">{{ itemCount }}</span>
+    {{/link-to}}
     {{partial "delete-button"}}
    </li>
   {{/each}}
