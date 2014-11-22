@@ -17,6 +17,9 @@
   <li class="list-group-item">
     {{#link-to 'category' id}}
       {{title}}
+      {{!--
+      <span class="badge">{{items.length}}</span>
+      --}}
       <span class="badge">{{ itemCount }}</span>
     {{/link-to}}
     {{partial "delete-button"}}

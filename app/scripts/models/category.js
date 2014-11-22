@@ -1,8 +1,8 @@
 App.Category = DS.Model.extend({
   title: DS.attr('string'),
-  items: DS.hasMany('item', {async: true}),
+  items: DS.hasMany('item'),
   itemCount: function() {
-    return this.get('items').get('length');
-  }.property('items')
+    return this.get('items.length');
+  }.property('items.@each')
 });
 

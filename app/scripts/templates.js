@@ -23,13 +23,40 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
-  var buffer = '', stack1, helper, options;
+  var buffer = '', stack1;
   data.buffer.push("\n    <li class=\"list-group-item\">\n      ");
+  stack1 = helpers['if'].call(depth0, "isEditing", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n    </li>\n  ");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = '', helper, options;
+  data.buffer.push("\n        ");
+  data.buffer.push(escapeExpression((helper = helpers['edit-item'] || (depth0 && depth0['edit-item']),options={hash:{
+    'class': ("form-control"),
+    'value': ("name"),
+    'focus-out': ("acceptEdit"),
+    'insert-newline': ("acceptEdit")
+  },hashTypes:{'class': "STRING",'value': "ID",'focus-out': "STRING",'insert-newline': "STRING"},hashContexts:{'class': depth0,'value': depth0,'focus-out': depth0,'insert-newline': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "edit-item", options))));
+  data.buffer.push("\n      ");
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = '', stack1, helper, options;
+  data.buffer.push("\n        <span ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editItem", "", {hash:{
+    'on': ("doubleClick")
+  },hashTypes:{'on': "STRING"},hashContexts:{'on': depth0},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
+  data.buffer.push("> ");
   stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n      ");
+  data.buffer.push("</span>\n        ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "delete-button", options) : helperMissing.call(depth0, "partial", "delete-button", options))));
-  data.buffer.push("\n    </li>\n  ");
+  data.buffer.push("\n      ");
   return buffer;
   }
 
@@ -37,7 +64,10 @@ function program1(depth0,data) {
   data.buffer.push("\n\n<h1>");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</h1>\n\n<div class=\"form-group\">\n  <div class=\"input-group\">\n    ");
+  data.buffer.push(": ");
+  stack1 = helpers._triageMustache.call(depth0, "items.length", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push(" Items</h1>\n\n<div class=\"form-group\">\n  <div class=\"input-group\">\n    ");
   data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
     'type': ("text"),
     'id': ("new-item"),
@@ -97,7 +127,7 @@ function program4(depth0,data) {
   data.buffer.push("\n      ");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n      <span class=\"badge\">");
+  data.buffer.push("\n      \n      <span class=\"badge\">");
   stack1 = helpers._triageMustache.call(depth0, "itemCount", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</span>\n    ");
@@ -144,7 +174,10 @@ function program1(depth0,data) {
   }
 
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "back-button", options) : helperMissing.call(depth0, "partial", "back-button", options))));
-  data.buffer.push("\n\n<h1>All items</h1>\n\n<ul class=\"list-group\">\n  ");
+  data.buffer.push("\n\n<h1>All ");
+  stack1 = helpers._triageMustache.call(depth0, "length", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push(" items</h1>\n\n<ul class=\"list-group\">\n  ");
   stack1 = helpers.each.call(depth0, {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n</ul>\n");

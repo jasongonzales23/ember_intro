@@ -1,6 +1,6 @@
 {{partial "back-button"}}
 
-<h1>{{title}}</h1>
+<h1>{{title}}: {{items.length}} Items</h1>
 
 <div class="form-group">
   <div class="input-group">
@@ -14,8 +14,12 @@
 <ul class="list-group">
   {{#each items}}
     <li class="list-group-item">
-      {{name}}
-      {{partial "delete-button"}}
+      {{#if isEditing}}
+        {{edit-item class="form-control" value=name focus-out="acceptEdit" insert-newline="acceptEdit"}}
+      {{else}}
+        <span {{action "editItem" this on="doubleClick"}}> {{name}}</span>
+        {{partial "delete-button"}}
+      {{/if}}
     </li>
   {{/each}}
 </ul>
