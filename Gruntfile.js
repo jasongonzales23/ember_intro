@@ -373,10 +373,10 @@ module.exports = function (grunt) {
     emberTemplates: {
       compile: {
         options: {
-          templateBasePath: /app\/templates\//
+          templateBasePath: /app\/scripts\/templates\//
         },
         files: {
-          'app/scripts/templates.js': ['app/templates/*.handlebars']
+          'app/scripts/templates.js': ['app/scripts/templates/*.handlebars']
         }
       }
     }
