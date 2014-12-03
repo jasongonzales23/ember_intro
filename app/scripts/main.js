@@ -19,9 +19,7 @@ App.IndexRoute = Ember.Route.extend({
 
 App.CategoryRoute = Ember.Route.extend({
   beforeModel: function(transition) {
-    this.store.find('category');
     this.store.find('item');
-    this._super(transition);
   },
   model: function(params) {
     return this.store.find('category', params.id);
